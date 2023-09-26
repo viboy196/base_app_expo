@@ -7,14 +7,13 @@ import {
   ImageBackground,
 } from "react-native";
 import React from "react";
+import { mainColor, textLight } from "../../constants/Colors";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { LinearGradient } from "expo-linear-gradient";
-import { mainColor } from "../../constants/Colors";
-import { RootLoginProps } from "../../navigation/types";
-export default function Login({ navigation }: RootLoginProps<"login">) {
+export default function ForgotPassword() {
   return (
     <View style={{ flex: 1, backgroundColor: "#fff" }}>
-      <View style={{ flex: 1, padding: 60 }}>
+      <View style={{ flex: 1, padding: 20 }}>
         <View
           style={{
             justifyContent: "center",
@@ -33,14 +32,13 @@ export default function Login({ navigation }: RootLoginProps<"login">) {
             justifyContent: "center",
             alignItems: "center",
             borderBottomWidth: 2,
-            paddingTop: 100,
             borderBottomColor: mainColor,
             marginBottom: 10,
           }}
         >
-          <Ionicons name="person-circle-outline" color={mainColor} size={24} />
+          <Ionicons name="mail" color={mainColor} size={24} />
           <TextInput
-            placeholder="Số điện thoại"
+            placeholder="Email"
             placeholderTextColor={mainColor}
             cursorColor={mainColor}
             style={{ flex: 1, padding: 10 }}
@@ -56,41 +54,15 @@ export default function Login({ navigation }: RootLoginProps<"login">) {
             marginBottom: 20,
           }}
         >
-          <Ionicons name="key" color={mainColor} size={24} />
+          <Ionicons name="call" color={mainColor} size={24} />
           <TextInput
             placeholder="Số điện thoại"
-            secureTextEntry
             placeholderTextColor={mainColor}
             cursorColor={mainColor}
             style={{ flex: 1, padding: 10 }}
           />
-          <View
-            style={{
-              height: "100%",
-              position: "absolute",
-              right: 0,
-              justifyContent: "center",
-              alignContent: "center",
-            }}
-          >
-            <Ionicons name="eye" color={mainColor} size={24} />
-          </View>
         </View>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "flex-end",
-            marginBottom: 10,
-          }}
-        >
-          <TouchableOpacity
-            onPress={() => navigation.navigate("forgotPassword")}
-          >
-            <Text style={{ color: mainColor, textDecorationLine: "underline" }}>
-              Quên mật khẩu?
-            </Text>
-          </TouchableOpacity>
-        </View>
+
         <View
           style={{
             flexDirection: "row",
@@ -108,19 +80,8 @@ export default function Login({ navigation }: RootLoginProps<"login">) {
               justifyContent: "center",
               alignItems: "center",
             }}
-            onPress={() => navigation.navigate("Main")}
           >
-            <Text style={{ color: "#fff", fontWeight: "600" }}>Đăng nhập</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={{ justifyContent: "center", alignItems: "center" }}>
-          <TouchableOpacity
-            style={{ padding: 10 }}
-            onPress={() => navigation.navigate("register")}
-          >
-            <Text style={{ color: mainColor, textDecorationLine: "underline" }}>
-              Đăng ký tài khoản
-            </Text>
+            <Text style={{ color: "#fff", fontWeight: "600" }}>Gửi</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -139,7 +100,7 @@ export default function Login({ navigation }: RootLoginProps<"login">) {
             height: "100%",
           }}
         />
-        <View style={{ flex: 1, paddingTop: 10, paddingHorizontal: 40 }}>
+        <View style={{ flex: 1, paddingTop: 30, paddingHorizontal: 40 }}>
           <Text
             style={{ color: mainColor, textAlign: "center", marginBottom: 10 }}
           >
@@ -155,7 +116,7 @@ export default function Login({ navigation }: RootLoginProps<"login">) {
               color: "#fff",
               fontSize: 10,
               textAlign: "center",
-              paddingBottom: 20,
+              paddingBottom: 10,
               fontWeight: "700",
             }}
           >

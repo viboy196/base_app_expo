@@ -7,14 +7,13 @@ import {
   ImageBackground,
 } from "react-native";
 import React from "react";
+import { mainColor, textLight } from "../../constants/Colors";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { LinearGradient } from "expo-linear-gradient";
-import { mainColor } from "../../constants/Colors";
-import { RootLoginProps } from "../../navigation/types";
-export default function Login({ navigation }: RootLoginProps<"login">) {
+export default function Register() {
   return (
     <View style={{ flex: 1, backgroundColor: "#fff" }}>
-      <View style={{ flex: 1, padding: 60 }}>
+      <View style={{ flex: 1, padding: 40 }}>
         <View
           style={{
             justifyContent: "center",
@@ -22,10 +21,16 @@ export default function Login({ navigation }: RootLoginProps<"login">) {
             marginBottom: 20,
           }}
         >
-          <Image
-            source={require("../../assets/Logo_512_512.png")}
-            style={{ width: 80, height: 80 }}
-          />
+          <Text
+            style={{
+              textTransform: "uppercase",
+              fontWeight: "700",
+              color: mainColor,
+              fontSize: 18,
+            }}
+          >
+            Đăng ký tài khoản
+          </Text>
         </View>
         <View
           style={{
@@ -33,12 +38,11 @@ export default function Login({ navigation }: RootLoginProps<"login">) {
             justifyContent: "center",
             alignItems: "center",
             borderBottomWidth: 2,
-            paddingTop: 100,
             borderBottomColor: mainColor,
-            marginBottom: 10,
+            marginBottom: 20,
           }}
         >
-          <Ionicons name="person-circle-outline" color={mainColor} size={24} />
+          <Ionicons name="call" color={mainColor} size={24} />
           <TextInput
             placeholder="Số điện thoại"
             placeholderTextColor={mainColor}
@@ -56,9 +60,59 @@ export default function Login({ navigation }: RootLoginProps<"login">) {
             marginBottom: 20,
           }}
         >
+          <Ionicons name="mail" color={mainColor} size={24} />
+          <TextInput
+            placeholder="Email"
+            placeholderTextColor={mainColor}
+            cursorColor={mainColor}
+            style={{ flex: 1, padding: 10 }}
+          />
+        </View>
+
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            borderBottomWidth: 2,
+            borderBottomColor: mainColor,
+            marginBottom: 20,
+          }}
+        >
           <Ionicons name="key" color={mainColor} size={24} />
           <TextInput
-            placeholder="Số điện thoại"
+            placeholder="Mật khẩu"
+            secureTextEntry
+            placeholderTextColor={mainColor}
+            cursorColor={mainColor}
+            style={{ flex: 1, padding: 10 }}
+          />
+          <View
+            style={{
+              height: "100%",
+              position: "absolute",
+              right: 0,
+              justifyContent: "center",
+              alignContent: "center",
+            }}
+          >
+            <Ionicons name="eye" color={mainColor} size={24} />
+          </View>
+        </View>
+
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            borderBottomWidth: 2,
+            borderBottomColor: mainColor,
+            marginBottom: 20,
+          }}
+        >
+          <Ionicons name="key" color={mainColor} size={24} />
+          <TextInput
+            placeholder="Nhập lại mật khẩu"
             secureTextEntry
             placeholderTextColor={mainColor}
             cursorColor={mainColor}
@@ -79,18 +133,22 @@ export default function Login({ navigation }: RootLoginProps<"login">) {
         <View
           style={{
             flexDirection: "row",
-            justifyContent: "flex-end",
-            marginBottom: 10,
+            justifyContent: "center",
+            alignItems: "center",
+            borderBottomWidth: 2,
+            borderBottomColor: mainColor,
+            marginBottom: 20,
           }}
         >
-          <TouchableOpacity
-            onPress={() => navigation.navigate("forgotPassword")}
-          >
-            <Text style={{ color: mainColor, textDecorationLine: "underline" }}>
-              Quên mật khẩu?
-            </Text>
-          </TouchableOpacity>
+          <Ionicons name="people" color={mainColor} size={24} />
+          <TextInput
+            placeholder="Họ và tên"
+            placeholderTextColor={mainColor}
+            cursorColor={mainColor}
+            style={{ flex: 1, padding: 10 }}
+          />
         </View>
+
         <View
           style={{
             flexDirection: "row",
@@ -104,21 +162,11 @@ export default function Login({ navigation }: RootLoginProps<"login">) {
               backgroundColor: mainColor,
               padding: 15,
               borderRadius: 8,
-              width: 120,
               justifyContent: "center",
               alignItems: "center",
             }}
-            onPress={() => navigation.navigate("Main")}
           >
-            <Text style={{ color: "#fff", fontWeight: "600" }}>Đăng nhập</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={{ justifyContent: "center", alignItems: "center" }}>
-          <TouchableOpacity
-            style={{ padding: 10 }}
-            onPress={() => navigation.navigate("register")}
-          >
-            <Text style={{ color: mainColor, textDecorationLine: "underline" }}>
+            <Text style={{ color: "#fff", fontWeight: "600" }}>
               Đăng ký tài khoản
             </Text>
           </TouchableOpacity>
@@ -140,22 +188,13 @@ export default function Login({ navigation }: RootLoginProps<"login">) {
           }}
         />
         <View style={{ flex: 1, paddingTop: 10, paddingHorizontal: 40 }}>
-          <Text
-            style={{ color: mainColor, textAlign: "center", marginBottom: 10 }}
-          >
-            <Text style={{ fontWeight: "bold" }}>Địa chỉ:</Text> Số 52 Nguyễn
-            Chí Thanh - Đống Đa - Ba Đình - Hà nội
-          </Text>
-          <Text style={{ color: mainColor, textAlign: "center" }}>
-            <Text style={{ fontWeight: "bold" }}>Liên hệ:</Text> 0981 325 335
-          </Text>
           <View style={{ flex: 1 }} />
           <Text
             style={{
               color: "#fff",
               fontSize: 10,
               textAlign: "center",
-              paddingBottom: 20,
+              paddingBottom: 10,
               fontWeight: "700",
             }}
           >

@@ -18,16 +18,28 @@ declare global {
 export type RootStackParamList = {
   Main: NavigatorScreenParams<RootTabParamList> | undefined;
   Login: NavigatorScreenParams<RootLoginParamList> | undefined;
+  addDevices: undefined;
+  notification: undefined;
+  settings: undefined;
+  support: undefined;
+  process: undefined;
+  processDetail: undefined;
+  settingProcess: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
   NativeStackScreenProps<RootStackParamList, Screen>;
 
 export type RootLoginParamList = {
-  one: undefined;
+  login: undefined;
+  register: undefined;
+  forgotPassword: undefined;
 };
 export type RootLoginProps<Screen extends keyof RootLoginParamList> =
-  NativeStackScreenProps<RootLoginParamList, Screen>;
+  CompositeScreenProps<
+    NativeStackScreenProps<RootLoginParamList>,
+    NativeStackScreenProps<RootStackParamList>
+  >;
 
 export type RootRegisterParamList = {
   Register1: undefined;
@@ -38,7 +50,6 @@ export type RootRegisterProps<Screen extends keyof RootRegisterParamList> =
 
 export type RootTabParamList = {
   TabHome: undefined;
-  TabRequest: undefined;
   TabInfo: undefined;
 };
 

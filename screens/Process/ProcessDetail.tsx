@@ -12,11 +12,15 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import ItemProcess from "./ItemProcess";
 import ItemProcessDetail from "./ItemProcessDetail";
 import ModalShare from "./ModalShare";
-export default function ProcessDetail() {
+import { paddingNavTop } from "../../utils/helper/UIHelper";
+import { RootStackScreenProps } from "../../navigation/types";
+export default function ProcessDetail({
+  navigation,
+}: RootStackScreenProps<"processDetail">) {
   const day = new Date();
   const dayback = new Date(day.getTime());
   dayback.setDate(day.getDate() - 1);
-  const [visible, setVisible] = React.useState(true);
+  const [visible, setVisible] = React.useState(false);
 
   const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
@@ -39,11 +43,19 @@ export default function ProcessDetail() {
           shadowRadius: 4.65,
 
           elevation: 6,
+          paddingTop: paddingNavTop + 10,
         }}
       >
-        <View>
+        <TouchableOpacity
+          style={{ padding: 10 }}
+          onPress={() => {
+            if (navigation.canGoBack()) {
+              navigation.goBack();
+            }
+          }}
+        >
           <Ionicons name="arrow-back" size={24} color={"#fff"} />
-        </View>
+        </TouchableOpacity>
         <View style={{ flex: 1, paddingLeft: 20 }}>
           <Text style={{ textAlign: "center", color: "#fff", fontSize: 16 }}>
             VD0101D160
@@ -162,7 +174,6 @@ export default function ProcessDetail() {
                 style={{
                   justifyContent: "center",
                   alignItems: "center",
-                  height: "100%",
                 }}
               >
                 <Ionicons name="search" size={20} color={mainColor} />
@@ -188,6 +199,7 @@ export default function ProcessDetail() {
                 justifyContent: "center",
                 alignItems: "center",
               }}
+              onPress={() => navigation.navigate("settingProcess")}
             >
               <View style={{ flex: 1, paddingLeft: 10 }}>
                 <Text style={{ color: textLight }}>Cài đặt</Text>

@@ -9,13 +9,26 @@ import * as React from "react";
 import { ColorSchemeName } from "react-native";
 
 import { RootStackParamList } from "./types";
-import LinkingConfiguration from "./LinkingConfiguration";
 import { useAppSelector } from "../redux/store/hooks";
 import { mainColor } from "../constants/Colors";
 
 // screens
 import LoginScreen from "../screens/Login";
 import MainScreen from "../screens/Main";
+
+import AddDevicesScreen from "../screens/AddDevices";
+
+import NotificationScreen from "../screens/Notification";
+
+import SettingsScreen from "../screens/Settings";
+
+import SupportScreen from "../screens/Support";
+
+import ProcessScreen from "../screens/Process";
+
+import ProcessDetailScreen from "../screens/Process/ProcessDetail";
+
+import SettingProcessScreen from "../screens/Process/SettingProcess";
 
 export const navigationRef =
   React.createRef<NavigationContainerRef<RootStackParamList>>();
@@ -24,7 +37,6 @@ export default function Navigation({}: { colorScheme?: ColorSchemeName }) {
   return (
     <NavigationContainer
       ref={navigationRef}
-      linking={LinkingConfiguration}
       theme={{ ...DefaultTheme, dark: false }}
     >
       <RootNavigator />
@@ -64,6 +76,42 @@ function RootNavigator() {
       <Stack.Screen
         name="Main"
         component={MainScreen}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="addDevices"
+        component={AddDevicesScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="notification"
+        component={NotificationScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="settings"
+        component={SettingsScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="support"
+        component={SupportScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="process"
+        component={ProcessScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="processDetail"
+        component={ProcessDetailScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="settingProcess"
+        component={SettingProcessScreen}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

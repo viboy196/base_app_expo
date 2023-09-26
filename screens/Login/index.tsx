@@ -4,16 +4,31 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { RootLoginParamList } from "../../navigation/types";
 
 import LoginScreen from "./Login";
+import RegisterScreen from "./Register";
+import ForgotPasswordScreen from "./ForgotPassword";
 
 export default function Login() {
   const Stack = createNativeStackNavigator<RootLoginParamList>();
   return (
-    <Stack.Navigator initialRouteName="one">
+    <Stack.Navigator initialRouteName="login">
       <Stack.Screen
-        name="one"
+        name="login"
         component={LoginScreen}
         options={{ headerShown: false }}
       />
+
+      <Stack.Screen
+        name="register"
+        component={RegisterScreen}
+        options={{ title: "Đăng ký tài khoản" }}
+      />
+
+      <Stack.Screen
+        name="forgotPassword"
+        component={ForgotPasswordScreen}
+        options={{ title: "Quên mật khẩu" }}
+      />
+
       {/* <Stack.Screen
         name="two"
         component={LoginAfterScreen}

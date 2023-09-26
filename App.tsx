@@ -22,6 +22,12 @@ import TabHome from "./uiClone/TabHome";
 import TabInfo from "./uiClone/TabInfo";
 import Process from "./uiClone/Process";
 import ProcessDetail from "./uiClone/Process/ProcessDetail";
+import SettingProcess from "./uiClone/Process/SettingProcess";
+import ScanQrCode from "./uiClone/ScanQrCode";
+import AddDevices from "./screens/AddDevices";
+import Notification from "./uiClone/Notification";
+import Settings from "./uiClone/Settings";
+import Support from "./uiClone/Support";
 const queryClient = new QueryClient();
 
 const theme = {
@@ -48,8 +54,8 @@ export default function App() {
             <PersistGate loading={null} persistor={persistor}>
               <QueryClientProvider client={queryClient}>
                 <SafeAreaProvider>
-                  {/* <Navigation colorScheme={colorScheme} /> */}
-                  <ProcessDetail />
+                  <Navigation colorScheme={colorScheme} />
+                  {/* <Support /> */}
                   <StatusBar />
                 </SafeAreaProvider>
               </QueryClientProvider>
