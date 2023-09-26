@@ -15,6 +15,13 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MD3LightTheme, Provider as PaperProvider } from "react-native-paper";
 import { RootSiblingParent } from "react-native-root-siblings";
 import { mainColor } from "./constants/Colors";
+import Login from "./uiClone/Login";
+import ForgotPassword from "./uiClone/ForgotPassword";
+import Register from "./uiClone/Register";
+import TabHome from "./uiClone/TabHome";
+import TabInfo from "./uiClone/TabInfo";
+import Process from "./uiClone/Process";
+import ProcessDetail from "./uiClone/Process/ProcessDetail";
 const queryClient = new QueryClient();
 
 const theme = {
@@ -41,7 +48,8 @@ export default function App() {
             <PersistGate loading={null} persistor={persistor}>
               <QueryClientProvider client={queryClient}>
                 <SafeAreaProvider>
-                  <Navigation colorScheme={colorScheme} />
+                  {/* <Navigation colorScheme={colorScheme} /> */}
+                  <ProcessDetail />
                   <StatusBar />
                 </SafeAreaProvider>
               </QueryClientProvider>
